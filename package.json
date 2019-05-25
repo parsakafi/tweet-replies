@@ -1,0 +1,34 @@
+{
+  "name": "tweet-replies",
+  "version": "1.0.0",
+  "description": "Tweet Replies",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Parsa Kafi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parsakafi/tweet-replies.git"
+  },
+  "keywords": [
+    "twitter",
+    "tweet"
+  ],
+  "bugs": {
+    "url": "https://github.com/parsakafi/tweet-replies/issues"
+  },
+  "homepage": "https://github.com/parsakafi/tweet-replies#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dateformat": "^3.0.3",
+    "dotenv": "^5.0.1",
+    "ejs": "^2.5.8",
+    "express": "^4.16.3",
+    "linkifyjs": "^2.1.6",
+    "request": "^2.85.0",
+    "twitter": "^1.7.1",
+    "valid-url": "^1.0.9"
+  }
+}

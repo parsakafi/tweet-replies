@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tweet Replies | Twitter.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"
+            integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
+            crossorigin="anonymous"></script>
+
+    <style>
+    .rtl{
+        text-align: right; 
+        direction: rtl;
+    }
+    .date{
+        direction: ltr;
+        display: inline-block;
+    }
+    ol > li{
+        margin-bottom: 20px;
+    }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="mt-3">
+        <h1>Tweet Replies</h1>
+        <form method="post" action="/" class="mt-5 col-sm-12 col-md-6 p-0">
+            <div class="form-group">
+                <label for="tweet">Tweet URL/ID</label>
+                <input type="text" name="tweet" class="form-control" id="tweet" placeholder="Enter Tweet URL/ID">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <% if(typeof error !== 'undefined' && error){ %>
+        <div class="alert alert-danger mt-3" role="alert">
+            Tweet ID/URL Invalid.
+        </div>
+        <% }else if(typeof tweets !== 'undefined'){ %>
+            <div class="mt-5">
+                <h2><%= tweets.full_name %> - <a href="https://twitter.com/<%= tweets.username %>">@<%= tweets.username %></a></h2>
+                <p>Share link: <a href="<%= tweets.share_link %>"><%= tweets.share_link %></a></p>
+                <ol>
+                    <% tweets.tweets.forEach(function(tweet) { %>
+                        <li class="<%= tweet.rtl ? 'rtl' : '' %>"><%- tweet.text %>
+                        <br><small class="date"><a href="<%= tweet.link %>"><%= tweet.created_at %></a></small>
+                        </li>
+                    <% }); %>
+                </ol>
+            </div>
+        <% } %>
+        <div class="copyright p-1 m-5 text-center">
+            Developed by <a href="http://parsa.ws">Parsa Kafi</a> <a href="https://github.com/parsakafi/"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
